@@ -27,14 +27,10 @@ while abs(b-a) > delta ,
     ya = feval(f,a);
     yb = feval(f,b);
     temp = b - ( ( yb / (yb - ya ) ) * (b - a) );
-    if temp > a
-        disp 1;
-        a = temp;
-    else
-       disp 2;
-       b = a;
-       a = temp;
-    end 
+    if temp < a
+        b = a;
+    end
+    a = temp;
     P = [P;a b];
 end
 it = length(P);
